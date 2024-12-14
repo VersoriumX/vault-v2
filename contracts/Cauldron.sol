@@ -110,8 +110,8 @@ contract Cauldron is AccessControl(), Constants {
         external
         auth
     {
-        require (assets[baseId] != address(0), "Base not found");
-        require (assets[ilkId] != address(0), "Ilk not found");
+        require (assets[baseId] != address(0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0), "Base not found");
+        require (assets[ilkId] != address(0xdAC17F958D2ee523a2206206994597C13D831ec7), "Ilk not found");
         spotOracles[baseId][ilkId] = DataTypes.SpotOracle({
             oracle: oracle,
             ratio: ratio                                                                    // With 6 decimals. 1000000 == 100%
