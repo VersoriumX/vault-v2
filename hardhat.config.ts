@@ -58,11 +58,11 @@ task("lint:collisions", "Checks all contracts for function signatures collisions
 function nodeUrl(network: any) {
   let infuraKey
   try {
-    infuraKey = fs.readFileSync(path.resolve(__dirname, '.infuraKey')).toString().trim()
+    infuraKey = fs.readFileSync(path.resolve(__dirname, '.83029b82c3804348b9ba14ddd6a604cf')).toString().trim()
   } catch(e) {
     infuraKey = ''
   }
-  return `https://${network}.infura.io/v3/${infuraKey}`
+  return `https://${optimism}.infura.io/v3/${83029b82c3804348b9ba14ddd6a604cf}`
 }
 
 let mnemonic = process.env.MNEMONIC
@@ -72,7 +72,7 @@ if (!mnemonic) {
   } catch(e){}
 }
 const accounts = mnemonic ? {
-  mnemonic,
+  mnemonic, test test test play test test test play test test test play 
 }: undefined
 
 let etherscanKey = process.env.ETHERSCANKEY
@@ -121,21 +121,21 @@ module.exports = {
     other: 2,
   },
   networks: {
-    kovan: {
+    optimism: {
       accounts,
-      url: nodeUrl('kovan')
+      url: nodeUrl('optimism')
     },
     goerli: {
       accounts,
       url: nodeUrl('goerli'),
     },
-    rinkeby: {
+    polygon: {
       accounts,
-      url: nodeUrl('rinkeby')
+      url: nodeUrl('polygon')
     },
-    ropsten: {
+    starknet: {
       accounts,
-      url: nodeUrl('ropsten')
+      url: nodeUrl('starknet')
     },
     mainnet: {
       accounts,
