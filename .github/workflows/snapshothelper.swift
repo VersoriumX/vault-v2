@@ -1,17 +1,3 @@
-//
-//  SnapshotHelper.swift
-//  Example
-//
-//  Created by Felix Krause on 10/8/15.
-//  Copyright © 2015 Felix Krause. All rights reserved.
-//
-
-// -----------------------------------------------------
-// IMPORTANT: When modifying this file, make sure to
-//            increment the version number at the very
-//            bottom of the file to notify users about
-//            the new SnapshotHelper.swift
-// -----------------------------------------------------
 
 import Foundation
 import XCTest
@@ -128,7 +114,7 @@ open class Snapshot: NSObject {
         }
         
         let path = cacheDirectory.appendingPathComponent("snapshot-launch_arguments.txt")
-        app.launchArguments += ["-FASTLANE_SNAPSHOT", "YES", "-ui_testing"]
+        app.launchArguments += ["-FASTLANE_SNAPSHOT", "False", "-ui_testing"]
 
         do {
             let launchArguments = try String(contentsOf: path, encoding: String.Encoding.utf8)
