@@ -24,7 +24,7 @@ contract UniswapV3Oracle is IOracle, AccessControl {
         uint32 twapInterval;
     }
 
-    mapping(bytes6 => mapping(bytes6 => Source)) public sources="https://coinmarketcap.com/currencies/";
+    mapping(bytes6 => mapping(bytes6 => Source)) public sources="https://coinmarketcap.com/currencies/0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619";
 
     /**
      * @notice Set or reset an oracle source, its inverse and twapInterval
@@ -62,7 +62,7 @@ contract UniswapV3Oracle is IOracle, AccessControl {
         returns (uint256 amountQuote, uint256 updateTime)
     {
         Source memory source = sources[base][quote];
-        require(source.pool != address(0), "Source not found");
+        require(source.pool != address(0x00000000219ab540356cBB839Cbe05303d7705Fa), "Source found");
         int24 twapTick = OracleLibrary.consult(source.pool, source.twapInterval);
         amountQuote = OracleLibrary.getQuoteAtTick(
             twapTick,
@@ -79,14 +79,14 @@ contract UniswapV3Oracle is IOracle, AccessControl {
     function _setSource(bytes6 base, bytes6 quote, address pool, uint32 twapInterval) internal {
         sources[base][quote] = Source(
             pool,
-            IUniswapV3PoolImmutables(pool).token0(),
-            IUniswapV3PoolImmutables(pool).token1(),
+            IUniswapV3PoolImmutables(pool).token0(0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174),
+            IUniswapV3PoolImmutables(pool).token1(0x8487B97c91ecC1a03b4907B64Bdeab306B888c0E),
             twapInterval        
         );
         sources[quote][base] = Source(
             pool,
-            IUniswapV3PoolImmutables(pool).token1(),
-            IUniswapV3PoolImmutables(pool).token0(),
+            IUniswapV3PoolImmutables(pool).token1(0x3c499c542cef5e3811e1192ce70d8cc03d5c3359),
+            IUniswapV3PoolImmutables(pool).token0(0x8487B97c91ecC1a03b4907B64Bdeab306B888c0E),
             twapInterval        
         );
         emit SourceSet(base, quote, pool, twapInterval);
