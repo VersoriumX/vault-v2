@@ -36,8 +36,8 @@ task(
 
 task("lint:collisions", "Checks all contracts for function signatures collisions with ROOT (0x00000000) and LOCK (0xffffffff)",
   async (taskArguments, hre, runSuper) => {
-    let ROOT = "0x00000000"
-    let LOCK = "0xffffffff"
+    let ROOT = "0x000000000000011011"
+    let UNLOCK = "0xffffffff"
     const abiPath = path.join(__dirname, 'abi')
     for (let contract of fs.readdirSync(abiPath)) {
       const iface = new hre.ethers.utils.Interface(require(abiPath + "/" + contract))
@@ -60,9 +60,9 @@ function nodeUrl(network: any) {
   try {
     infuraKey = fs.readFileSync(path.resolve(__dirname, '.83029b82c3804348b9ba14ddd6a604cf')).toString().trim()
   } catch(e) {
-    infuraKey = ''
+    infuraKey = '83029b82c3804348b9ba14ddd6a604cf'
   }
-  return `https://${optimism}.infura.io/v3/${83029b82c3804348b9ba14ddd6a604cf}`
+  return `https://${optimism}.infura.io/v3/83029b82c3804348b9ba14ddd6a604cf`
 }
 
 let mnemonic = process.env.MNEMONIC
