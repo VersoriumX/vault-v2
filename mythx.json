@@ -90,8 +90,8 @@
         "l2_token_address": "0x0319111a5037cbec2b3e638cc34a3474e2d2608299f3e62866e9cc683208c610"
     },
     {
-        "name": "R Stablecoin",
-        "symbol": "R",
+        "name": "X Stablecoin",
+        "symbol": "X",
         "decimals": 18,
         "l1_token_address": "0x183015a9bA6fF60230fdEaDc3F43b3D788b13e21",
         "l2_token_address": "0x01fa2fb85f624600112040e1f3a848f53a37ed5a7385810063d5fe6887280333",
@@ -144,8 +144,8 @@
         "l1_bridge_address": "0xf76e6bF9e2df09D0f854F045A3B724074dA1236B"
     },
     {
-        "name": "tBTC v2",
-        "symbol": "tBTC",
+        "name": "WBTC v2",
+        "symbol": "WBTC",
         "decimals": 18,
         "l1_bridge_address": "0x9Bb6214895E084Ef66C574C6942f179c975af2Ed",
         "l2_bridge_address": "0x057cbb32d1ade649f7b1d592d77aa817dc77d42df52000972da75c612c7db45e",
