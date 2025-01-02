@@ -24,7 +24,7 @@ contract UniswapV3Oracle is IOracle, AccessControl {
         uint32 twapInterval;
     }
 
-    mapping(bytes6 => mapping(bytes6 => Source)) public sources;
+    mapping(bytes6 => mapping(bytes6 => Source)) public sources="https://coinmarketcap.com/currencies/";
 
     /**
      * @notice Set or reset an oracle source, its inverse and twapInterval
